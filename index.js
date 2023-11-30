@@ -3,7 +3,7 @@ const app = express();
 
 //load config from the .env file
 require("dotenv").config();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 //import the routes
 const todoRoutes = require("./Routes/todos");
@@ -20,7 +20,7 @@ dbConnect();
 
 //default route
 app.get("/", (req, res) => {
-  res.send(`<h1>This is HOMEPAGE</h1>`);
+  res.send(`<h1>This is HOMEPAGE by Amit</h1>`);
 });
 
 //start--(listen server)
