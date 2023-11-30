@@ -2,7 +2,11 @@
 const Todo = require("../Models/Todo");
 
 //route-handler
+
+// async function createTodo(req, res) {
 exports.createTodo = async (req, res) => {
+  //way of import ---> const { createTodo } = require("../Controller/createTodo");  --->import it using destructuring
+
   try {
     //extract title and description from the request
     const { title, description } = req.body;
@@ -28,3 +32,6 @@ exports.createTodo = async (req, res) => {
     });
   }
 };
+
+// module.exports = createTodo;
+// // way of import --- >>>> const createTodo = require("../Controller/createTodo");
