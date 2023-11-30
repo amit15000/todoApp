@@ -7,10 +7,8 @@ const PORT = process.env.PORT || 4000;
 
 //import the routes
 const todoRoutes = require("./Routes/todos");
-
 //routes ke requets ke json ko parse karne ke liye use  'middleware'
 app.use(express.json());
-
 //routes (todo ke routes -> todoRoutes)  -- ko mount karna hai --> virtual directory add karna
 app.use("/api/v1", todoRoutes);
 
