@@ -3,9 +3,12 @@ const express = require("express");
 const router = express.Router();
 //route a controller map rehta hai -->import controller
 const { createTodo } = require("../Controller/createTodo");
+const { getTodos, getTodoByID } = require("../Controller/getTodos");
 
 //route ke object se post request -- 'createTodoPath' -- path (jisko ' createTodo ' controller se map karaya hai) ---- 'createTodo controller ko bheja.
 router.post("/createTodo", createTodo);
+router.get("/getTodos", getTodos);
+router.get("/getTodos/:id", getTodoByID);
 
 // router.post("/", (req, res) => {
 //   console.log("Route working Properly");
