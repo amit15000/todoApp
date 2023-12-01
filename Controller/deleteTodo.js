@@ -6,9 +6,19 @@ exports.deleteTodo = async (req, res) => {
     const item = await Todo.findOneAndDelete({ _id: id });
     if (!item) {
       return res.status(404).json({
-        sucess: false,
-        message,
+        success: false,
+        message: "Item not found",
       });
     }
-  } catch {}
+    res.status(200).json({
+      success: true,
+      message: "Item Deleted",
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      data: err.message,
+      messsage: "Error in processing the request",
+    });
+  }
 };
