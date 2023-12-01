@@ -5,19 +5,19 @@ exports.getTodos = async (req, res) => {
   try {
     const response = await Todo.find({});
 
-    if (response.length == 0) {
-      res.status(200).json({
+    if (!response) {
+      return res.status(200).json({
         success: true,
         data: response,
         message: "No item present",
       });
-    } else {
-      res.status(200).json({
-        success: true,
-        data: response,
-        message: "Items recieved",
-      });
     }
+
+    res.status(200).json({
+      success: true,
+      data: response,
+      message: "Items recieved",
+    });
   } catch (err) {
     res.status(500).json({
       success: false,
@@ -34,9 +34,9 @@ exports.getTodoByID = async (req, res) => {
     const item = await Todo.findById({ _id: id });
 
     if (!item) {
-      return res.statis(404).json({
+      return res.status(404).json({
         success: false,
-        maggese: "No  data fount with given ID",
+        maggese: "No data fount with given ID",
       });
     }
 
